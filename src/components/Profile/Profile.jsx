@@ -2,14 +2,14 @@ import React from "react";
 import styles from './profile.module.css'
 
 const Profile = ({user}) => {
-    
+
     return (
         <div className={styles.profile}>
-        <div class="description">
+        <div className={styles.description}>
             <img
             src="https://i.pinimg.com/originals/a0/40/66/a04066a2d1fcf25df39c599e093995c8.jpg"
             alt="user avatar"
-            class={styles.avatar}
+            className={styles.avatar}
             />
             <p className={styles.name}>{user.name}</p>
             <p className={styles.tag}>@{user.tag}</p>
