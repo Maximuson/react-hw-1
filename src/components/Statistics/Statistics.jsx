@@ -1,9 +1,10 @@
-import React from "react";
-import styles from "./Statistics.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Statistics.module.css';
 
 const Statistics = props => {
   const { title, stats } = props;
-  const colors = ["#4fc4f6", "#a33cf2", "#e64c65", "#009688", "#21b8c6"];
+  const colors = ['#4fc4f6', '#a33cf2', '#e64c65', '#009688', '#21b8c6'];
   const _randomIntegerFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -27,9 +28,24 @@ const Statistics = props => {
   return (
     <section className={styles.statistics}>
       {title && <h2 className={styles.title}>Upload stats</h2>}
-      <ul className={styles["stat-list"]}>{items}</ul>
+      <ul className={styles['stat-list']}>{items}</ul>
     </section>
   );
 };
 
+Statistics.defaultProps = {
+  stats: [],
+  title: '',
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    }),
+  ),
+  title: PropTypes.string,
+};
 export default Statistics;
