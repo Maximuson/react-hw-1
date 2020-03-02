@@ -2,7 +2,16 @@ import React from 'react';
 import styles from './profile.module.css';
 import PropTypes from 'prop-types';
 
-const Profile = ({ user }) => {
+const Profile = ({
+  user = {
+    name: 'No name',
+    stats: {
+      followers: 0,
+      views: 0,
+      likes: 0,
+    },
+  },
+}) => {
   return (
     <div className={styles.profile}>
       <div className={styles.description}>
@@ -38,17 +47,6 @@ const Profile = ({ user }) => {
       </ul>
     </div>
   );
-};
-
-Profile.defaultProps = {
-  user: {
-    name: 'asd',
-    stats: {
-      followers: 0,
-      views: 0,
-      likes: 0,
-    },
-  },
 };
 
 Profile.propTypes = {
